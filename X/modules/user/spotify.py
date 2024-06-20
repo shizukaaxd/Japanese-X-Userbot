@@ -40,57 +40,30 @@ import random
 from .help import *
 
 # Updated API details
-API_ENDPOINT = "https://spotify-downloader8.p.rapidapi.com/api/spotify"
-API_KEY = "5eb5f408"
-RAPIDAPI_KEY = "d19c1c0167mshbfca18a47fb33a0p14552ejsn9b47b7ac383a"
-RAPIDAPI_HOST = "spotify-downloader8.p.rapidapi.com"
-
-@Client.on_message(
-    filters.command(["spotify"], ".") & (filters.me | filters.user(SUDO_USERS))
-)
-async def spotify_downloader(client: Client, message: Message):
-    if len(message.command) == 1:
-        return await message.reply(f"Ketik <code>.{message.command[0]} [Spotify URL]</code> to download a Spotify track")
-    
-    Spotifyurl = message.text.split(" ", maxsplit=1)[1]
-    
-    msg = await message.reply("`Downloading...`")
-
-    stages = ["Downloading.", "Downloading..", "Downloading...", "Downloading..", "Downloading."]
-    
-    for stage in stages:
-        await asyncio.sleep(0.5)
-        await msg.edit(stage)
-    
-    querystring = {"apikey": API_KEY, "search": Spotifyurl}
-    headers = {
-        "x-rapidapi-key": RAPIDAPI_KEY,
-        "x-rapidapi-host": RAPIDAPI_HOST
-    }
-    
+@app.on_message(filters.command("Spotify", prefixes="."))
+async def spotify_dl(client, message):
     try:
-        response = requests.get(API_ENDPOINT, headers=headers, params=querystring)
-        response.raise_for_status()
+        # Extract song name from the message
+        song_name = " ".join(message.command[1:])
+        
+        # Fetch data from SpotifyDL API
+        api_url = f"https://spotifydl-nu.vercel.app/api/search?q={song_name}"
+        response = requests.get(api_url)
         data = response.json()
         
-        if "download_url" in data:
-            download_url = data["download_url"]
-            await msg.edit(f"Download link: [hidden]({download_url})")
-            await message.reply(
-                f"Title: {data.get('title', 'Unknown Title')}\n"
-                f"Artist: {data.get('artist', 'Unknown Artist')}\n"
-                f"Duration: {data.get('time', '00:00')}"
-            )
-        else:
-            await msg.edit("Failed to retrieve the download URL. Please try again later.")
+        # Extract relevant information
+        track_name = data["trackName"]
+        artist = data["artist"]
+        album = data["album"]
+        audio_url = data["audio"]
+        
+        # Send audio to the chat
+        await message.reply_audio(audio=audio_url, caption=f"🎵 **{track_name}** by {artist} from the album *{album}*")
+    
     except Exception as e:
-        await msg.edit(f"Error: {str(e)}")
-    
-    await message.delete()
-    
-    
+        print(f"Error: {str(e)}")
 
-
+    
 add_command_help(
     "•─╼⃝𖠁 Sᴘᴏᴛɪғʏ",
     [
