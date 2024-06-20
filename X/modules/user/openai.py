@@ -51,7 +51,7 @@ from .help import *
 API_ENDPOINTS = [
     "https://api.ajinkya.link/gpt.php?question={question}",
     "https://chatgpt.apinepdev.workers.dev/?question={question}",
-    "https://weareforyoi.000webhostapp.com/chatgpt.php?question={question}"
+    "https://all-api-phi.vercel.app/?question={question}"
 ]
 
 @Client.on_message(
