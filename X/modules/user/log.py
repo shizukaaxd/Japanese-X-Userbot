@@ -153,7 +153,7 @@ async def set_pmlog(client: Client, message: Message):
         PMLOG = True
     if PMLOG:
         if h_type:
-            await edit_or_reply(message, "**PM LOG Sudah Activated**")
+            await edit_or_reply(message, "**PM LOG Activated**")
         else:
             addgvar("PMLOG", h_type)
             await edit_or_reply(message, "**PM LOG Shutdown Successfully**")
@@ -210,7 +210,7 @@ add_command_help(
             "Tᴏ ᴇɴᴀʙʟᴇ ᴏʀ ᴅɪꜱᴀʙʟᴇ ᴘʀɪᴠᴀᴛᴇ ᴍᴇꜱꜱᴀɢᴇ ʟᴏɢꜱ ᴛʜᴀᴛ ᴡɪʟʟ ʙᴇ ғᴏʀᴡᴀʀᴅᴇᴅ ᴛᴏ ᴛʜᴇ ʟᴏɢ ɢʀᴏᴜᴘ.",
         ],
         [
-            "gruplog ᴏɴ/ᴏғғ",
+            "grouplog ᴏɴ/ᴏғғ",
             "Tᴏ ᴇɴᴀʙʟᴇ ᴏʀ ᴅɪꜱᴀʙʟᴇ ɢʀᴏᴜᴘ ᴛᴀɢꜱ, ᴡʜɪᴄʜ ᴡɪʟʟ ɢᴏ ᴛᴏ ᴛʜᴇ ʟᴏɢ ɢʀᴏᴜᴘ.",
         ],
     ],
