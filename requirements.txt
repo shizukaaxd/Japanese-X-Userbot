@@ -11,6 +11,7 @@ google==3.0.0
 googlesearch-python== 1.2.4
 gpytranslate
 gtts
+gunicorn
 heroku3
 humanize
 lottie
@@ -22,6 +23,7 @@ psycopg2-binary
 ptable
 pymediainfo
 pyrogram
+pymongo
 pytgcalls==3.0.0.dev24
 python-dotenv
 pykeyboard
