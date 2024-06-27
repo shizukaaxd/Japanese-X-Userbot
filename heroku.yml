@@ -1,6 +1,5 @@
 build:
   docker:
-      worker: Dockerfile
+    worker: Dockerfile
 run:
-  worker: python3 -m X
-  
+  worker: bash start.sh
