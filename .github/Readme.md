@@ -63,6 +63,9 @@
 <p align="center"><a href="http://dashboard.heroku.com/new?template=https://github.com/Team-Japanese/Japanese-X-Userbot"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-purple?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 
+
+[![Deploy To Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/shizukaaxd/Japanese-X-Userbot&branch=main&name=japanesexub)
+
 # 𝑫𝑰𝑺𝑪𝑳𝑨𝑰𝑴𝑬𝑹
 
 
