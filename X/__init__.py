@@ -54,7 +54,6 @@ from config import (
     SUDO_USERS,
     BOT_TOKEN
 )
-DATABASE_URL = DB_URL
 CMD_HELP = {}
 SUDO_USER = SUDO_USERS
 clients = []
