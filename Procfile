@@ -1,1 +1,1 @@
-web: python3 -m X
+web: bash start.sh
